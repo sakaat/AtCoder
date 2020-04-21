@@ -4,7 +4,7 @@ let N = stdin.ReadLine() |> int
 let A = stdin.ReadLine().Split() |> Array.map int64
 let B = stdin.ReadLine().Split() |> Array.map int64
 
-let rec resolver s n =
+let rec solver s n =
     if n = N then s
     else
         let mutable t = 0L
@@ -24,6 +24,6 @@ let rec resolver s n =
             A.[n + 1] <- A.[n + 1] - B.[n]
             t <- t + B.[n]
             B.[n] <- 0L
-        resolver (s + t) (n + 1)
+        solver (s + t) (n + 1)
 
-resolver 0L 0 |> stdout.WriteLine
+solver 0L 0 |> stdout.WriteLine

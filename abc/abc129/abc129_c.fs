@@ -12,17 +12,17 @@ let dp = Array.zeroCreate<int> (N + 1)
 
 dp.[0] <- 1
 
-let rec resolver idx i =
+let rec solver idx i =
     if i = N + 1 then ()
     elif idx < M && a.[idx] = i then
         dp.[i] <- 0
-        resolver (idx + 1) (i + 1)
+        solver (idx + 1) (i + 1)
     else
         dp.[i] <- (dp.[i - 1] + if i <> 1 then dp.[i - 2]
                                 else 0)
                   % MOD
-        resolver idx (i + 1)
+        solver idx (i + 1)
 
-resolver 0 1
+solver 0 1
 
 dp.[N] |> stdout.WriteLine

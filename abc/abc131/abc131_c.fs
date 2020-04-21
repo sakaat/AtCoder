@@ -10,6 +10,6 @@ let rec gcd a b =
 
 let lcm a b = a * b / (gcd a b)
 
-let resolver x = x - x / C - x / D + x / (lcm C D)
+let solver x = x - x / C - x / D + x / (lcm C D)
 
-resolver B - resolver (A - 1L) |> stdout.WriteLine
+solver B - solver (A - 1L) |> stdout.WriteLine

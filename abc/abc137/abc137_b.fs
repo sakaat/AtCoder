@@ -2,12 +2,12 @@
 
 let [| K; X |] = stdin.ReadLine().Split() |> Array.map int
 
-let rec resolver i =
+let rec solver i =
     if i = X + K then ()
-    elif i < -1000000 || 1000000 < i then resolver (i + 1)
+    elif i < -1000000 || 1000000 < i then solver (i + 1)
     else
         printf "%d" i
         printf " "
-        resolver (i + 1)
+        solver (i + 1)
 
-resolver (X - K + 1)
+solver (X - K + 1)

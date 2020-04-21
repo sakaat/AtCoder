@@ -2,9 +2,9 @@
 
 let [| N; K |] = stdin.ReadLine().Split() |> Array.map int
 
-let rec resolver r n =
+let rec solver r n =
     match n with
-    | n when n > 0 -> resolver (r + 1) (n / K)
+    | n when n > 0 -> solver (r + 1) (n / K)
     | _ -> r
 
-resolver 0 N |> stdout.WriteLine
+solver 0 N |> stdout.WriteLine

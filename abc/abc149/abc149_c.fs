@@ -15,8 +15,8 @@ let isPrime x =
         else loop (n - 1)
     loop (sqrtInt x)
 
-let rec resolver x =
+let rec solver x =
     if isPrime x then x
-    else resolver (x + 1)
+    else solver (x + 1)
 
-resolver X |> stdout.WriteLine
+solver X |> stdout.WriteLine

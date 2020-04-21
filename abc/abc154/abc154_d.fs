@@ -8,11 +8,11 @@ let m =
     |> Array.take K
     |> Array.sum
 
-let rec resolver m t n =
+let rec solver m t n =
     match n with
     | n when n = N - K + 1 -> ((m + K) |> float) / 2.0
     | _ ->
         let s = t + p.[n + K - 1] - p.[n - 1]
-        resolver (max s m) s (n + 1)
+        solver (max s m) s (n + 1)
 
-resolver m m 1 |> stdout.WriteLine
+solver m m 1 |> stdout.WriteLine

@@ -7,11 +7,11 @@ let v =
     |> Array.map float
     |> Array.sortDescending
 
-let rec resolver l =
+let rec solver l =
     if l <= 1 then ()
     else
         v.[l - 2] <- (v.[l - 2] + v.[l - 1]) / 2.0
-        resolver (l - 1)
+        solver (l - 1)
 
-resolver v.Length
+solver v.Length
 v.[0] |> stdout.WriteLine

@@ -10,7 +10,7 @@ let queue = new Queue<int64>()
 
 let mutable n = 0L
 
-let rec resolver k =
+let rec solver k =
     n <- queue.Dequeue()
     match n % 10L with
     | 0L ->
@@ -25,7 +25,7 @@ let rec resolver k =
           n * 10L + n % 10L + 1L ]
     |> List.iter queue.Enqueue
     if k = K - 1 then ()
-    else resolver (k + 1)
+    else solver (k + 1)
 
-resolver 0
+solver 0
 n |> printfn "%d"

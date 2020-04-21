@@ -10,11 +10,11 @@ let rec fact r n =
     if n = 1 then r
     else fact (r * n) (n - 1)
 
-let rec resolver r i j =
+let rec solver r i j =
     if i = N then r / float (fact 1 N)
     else
         let rec loop r j =
-            if j = N then resolver r (i + 1) 0
+            if j = N then solver r (i + 1) 0
             elif i = j then loop r (j + 1)
             else
                 let x = abs (xy.[i].[0] - xy.[j].[0]) * abs (xy.[i].[0] - xy.[j].[0])
@@ -22,4 +22,4 @@ let rec resolver r i j =
                 loop (r + float (fact 1 (N - 1)) * sqrt (float (x + y))) (j + 1)
         loop r j
 
-resolver 0.0 0 0 |> stdout.WriteLine
+solver 0.0 0 0 |> stdout.WriteLine
